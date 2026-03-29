@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
 
-    @State private var amount = ""
-    @State private var convertedTo = ""
+    @StateObject private var viewModel = ContentViewModel(convertedAmount: 0.0, baseAmount: 0.0)
 
     var body: some View {
         VStack(alignment: .leading, spacing: 40.0) {
@@ -18,7 +18,8 @@ struct ContentView: View {
                 Text("Amount")
                     .font(.body)
                     .fontWeight(.medium)
-                TextField("", text: $amount)
+                TextField("", value: $viewModel.baseAmount, formatter: viewModel.numberFormatter)
+                    .keyboardType(.decimalPad)
                     .font(.body)
                     .padding(.horizontal, 10.0)
                     .padding(.vertical, 8.0)
@@ -41,7 +42,8 @@ struct ContentView: View {
                 Text("Converted To")
                     .font(.body)
                     .fontWeight(.medium)
-                TextField("", text: $convertedTo)
+                TextField("", value: $viewModel.convertedAmount, formatter: viewModel.numberFormatter)
+                    .keyboardType(.decimalPad)
                     .font(.body)
                     .padding(.horizontal, 10.0)
                     .padding(.vertical, 8.0)
