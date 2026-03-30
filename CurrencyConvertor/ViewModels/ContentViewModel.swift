@@ -39,7 +39,7 @@ class ContentViewModel: ObservableObject {
     }
 
     func fetchRates() async {
-        let baseUrl = "https://openexchangerates.org/api/latest.json?app_id=API_KEY"
+        let baseUrl = "https://openexchangerates.org/api/latest.json?app_id=\(Secrets.appId)"
         guard let url = URL(string: baseUrl) else {
             errorMsg = "API url is not valid..."
             return
