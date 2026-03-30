@@ -57,4 +57,12 @@ class ContentViewModel: ObservableObject {
         }
         isLoading = false
     }
+
+    func convert() {
+        if let baseExchangeRate = rates.rates[baseCurrency.rawValue],
+           let convertedExchangedRate = rates.rates[convertedCurrency.rawValue] {
+            convertedAmount = (convertedExchangedRate / baseExchangeRate) * baseAmount
+        }
+    }
 }
+

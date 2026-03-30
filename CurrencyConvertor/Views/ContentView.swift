@@ -29,7 +29,6 @@ struct ContentView: View {
                         .font(.body)
                         .padding(.horizontal, 12.0)
                         .padding(.vertical, 16.0)
-
                         .overlay(content: {
                             RoundedRectangle(cornerRadius: 8.0)
                                 .fill(.clear)
@@ -56,6 +55,9 @@ struct ContentView: View {
                                 }.foregroundStyle(.black)
                             }).padding(.trailing, 8.0)
                         })
+                        .onSubmit {
+                            viewModel.convert()
+                        }
                 }
 
                 HStack {
@@ -125,6 +127,9 @@ struct ContentView: View {
                         .tint(.white)
                 }
             }
+        }
+        .onTapGesture {
+            viewModel.convert()
         }
     }
 }
