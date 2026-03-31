@@ -28,6 +28,13 @@ class ContentViewModel: ObservableObject {
     @Published var isLoading: Bool
     @Published var errorMsg: String
 
+    var conversionRate: Double {
+        if let baseExchangeRate = rates.rates[baseCurrency.rawValue],
+           let convertedExchangedRate = rates.rates[convertedCurrency.rawValue] {
+            return convertedExchangedRate / baseExchangeRate
+        }
+        return 1.0
+    }
 
     var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
