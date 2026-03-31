@@ -35,14 +35,6 @@ The project follows the **MVVM (Model-View-ViewModel)** pattern:
 
 ---
 
-## 📱 Screenshots
-
-| Main Screen |
-|---|
-| Select source and target currencies from a dropdown menu, enter an amount, and view the converted result along with the live exchange rate. |
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
